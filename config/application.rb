@@ -41,5 +41,6 @@ module CodeLog
           :methods => [:get, :post, :delete, :put, :patch, :options, :head],
           :max_age => 0
       end
+    end
   end
 end
