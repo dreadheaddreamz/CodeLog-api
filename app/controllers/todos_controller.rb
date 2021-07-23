@@ -15,7 +15,7 @@ class TodosController < ApplicationController
     end
 
     def show
-        todos = Todos.find_by(params[:id])
+        todos = Todo.find_by(params[:id])
         
         render json: todos
     end

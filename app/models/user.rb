@@ -1,4 +1,4 @@
 class User < ApplicationRecord
-    has_many :trackers
-    has_many :todos
+    #has_many :trackers
+    #has_many :todos
 end
