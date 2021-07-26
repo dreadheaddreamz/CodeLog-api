@@ -15,9 +15,13 @@ class TodosController < ApplicationController
     end
 
     def show
-        todos = Todo.find_by(params[:id])
-        
-        render json: todos
+        todos = Todo.find_by(id: params[:id])
+       if todos
+            todos.destroy
+            render json: todos
+       else
+        render json: {error: "We can't do that", status:400}
+       end
     end
 
     def destroy

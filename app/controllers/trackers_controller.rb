@@ -6,7 +6,6 @@ class TrackersController < ApplicationController
     end
 
     def create
-        binding.pry
         trackers = Tracker.new(tracker_params)
         if trackers.save
             render json: trackers
@@ -22,8 +21,13 @@ class TrackersController < ApplicationController
     end
     
     def destroy
-        trackers = Tracker.find_by(tracker_params)
-        trackers.destroy
+       trackers = Tracker.find_by(id: params[:id])
+       if trackers
+            trackers.destroy
+            render json: trackers
+       else
+        render json: {error: "We can't do that", status:400}
+       end
     end
 
     private
